@@ -104,6 +104,7 @@ header {
 		}
 
 		li {
+			
 			a { 
 				color: #222; 
 
@@ -114,6 +115,13 @@ header {
 				&:visited {
 					color: #228
 				}		
+			}
+
+			span {
+				display: block;
+				font-size: 0.8rem;
+				color: #002299;
+				margin-bottom: 1rem;
 			}
 		}
 	}
