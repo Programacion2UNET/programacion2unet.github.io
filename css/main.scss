@@ -123,6 +123,15 @@ header {
 				color: #002299;
 				margin-bottom: 1rem;
 			}
+
+			.pdf {
+				font-weight: 300;
+				color: #ff0000;
+
+				&:hover {
+					color: #440000;
+				}
+			}
 		}
 	}
 }
