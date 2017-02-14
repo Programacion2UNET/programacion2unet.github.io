@@ -17,10 +17,16 @@ h5 {
 	color: #777;
 }
 
+$gradientTopColor:#000011;
+$gradientBottomColor:#30AA90;
+
 header {
-	background-color: #000;
-	background-image: url('../img/header.jpg');
-	background-size: cover;
+	background: $gradientTopColor; /* Old Browsers */
+	background: -webkit-linear-gradient(top left,$gradientTopColor,$gradientBottomColor); /*Safari 5.1-6*/
+	background: -o-linear-gradient(top left,$gradientTopColor,$gradientBottomColor); /*Opera 11.1-12*/
+	background: -moz-linear-gradient(top left,$gradientTopColor,$gradientBottomColor); /*Fx 3.6-15*/
+	background: linear-gradient(top left, $gradientTopColor, $gradientBottomColor); /*Standard*/
+
 	color: #FFF;
 	padding: 150px 60px;
 

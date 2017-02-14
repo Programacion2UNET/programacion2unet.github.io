@@ -1,0 +1,186 @@
+/*********************************
+* CUSTOM CLASESS
+*********************************/
+
+$gradientTopColor:#000011;
+$gradientBottomColor:#30AA90;
+
+body {
+  background: $gradientTopColor; /* Old Browsers */
+  background: -webkit-linear-gradient(top left,$gradientTopColor,$gradientBottomColor); /*Safari 5.1-6*/
+  background: -o-linear-gradient(top left,$gradientTopColor,$gradientBottomColor); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(top left,$gradientTopColor,$gradientBottomColor); /*Fx 3.6-15*/
+  background: linear-gradient(top left, $gradientTopColor, $gradientBottomColor); /*Standard*/
+}
+
+.slides {
+  .half {
+    width: 50%;
+  }
+  .twothird {
+    width: 64%;
+  }
+  .third {
+    width: 30%;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.reveal section img {
+  max-width: 80%;
+  &.noborder {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+strong {
+  color: #CCffCC;
+  font-weight: normal !important;
+}
+
+$linkColor: #99ff99;
+$linkColorHover: #33aa33;
+.reveal {
+  color: #eee;
+
+  a {
+    color: $linkColor;
+
+    &:hover { color: $linkColorHover; }
+  }
+
+  sup {
+    font-size: 50%;
+  }
+
+  .center {
+    margin: 0 auto;
+  }
+  .nomargin {
+    margin: 0;
+  }
+  .slides section .text-left {
+    text-align: left;
+  }
+  blockquote {
+    background: #EEE;
+    padding: 25px;
+  }
+  cite {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+  }
+  section {
+    .smaller {
+      font-size: 28px;
+      font-size: 15px;
+    }
+    padding-bottom: 10px;
+    .center {
+      text-align: center;
+    }
+    h1 {
+      font-size: 6rem;
+    }
+    h2 {
+      font-size: 5rem;
+      text-shadow: 1px 2px 2px #333;
+    }
+    h3 {
+      font-size: 3rem;
+      text-shadow: 1px 2px 2px #333;
+      text-decoration: underline;
+    }
+  }
+  li h3 {
+    margin-top: 40px;
+  }
+  ul {
+    text-align: left;
+    margin: 15px 0 15px 50px;
+  }
+  ol {
+    text-align: left;
+  }
+}
+
+#definition-header {
+  text-align: left;
+  margin-top: 9px;
+  padding-left: 10px;
+  margin-bottom: 100px;
+  font-size: 24px;
+}
+
+.logo-wrapper img {
+  margin-top: 15px;
+}
+
+#subject-code {
+  margin-bottom: 100px;
+}
+
+.reveal .slidess > section {
+  padding: 0;
+  > section {
+    padding: 0;
+  }
+}
+
+table {
+  th {
+    background: #0090FF;
+    color: #FFF;
+    border: 1 solid #333;
+  }
+}
+
+.slides {
+  table {
+    margin: 0 auto;
+    th {
+      padding: 20px;
+    }
+  }
+}
+
+
+p.nota {
+  color: #333;
+  font-style: italic;
+  font-size: 0.5em;
+  padding: 20px;
+  text-align: center;
+  text-shadow: 0 0 2px #555;
+}
+
+.reveal section pre {
+  box-shadow: none;
+  width: 100%;
+  code {
+    box-shadow: 0 0 6px #000010;
+  }
+}
+
+/* Intro */
+.reveal {
+  .professor-info a {
+    font-size: 2rem;
+
+  }
+  
+}
