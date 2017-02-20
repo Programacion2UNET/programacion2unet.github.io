@@ -1,0 +1,432 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Convenciones de código</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						Convenciones de código
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="contenido">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li>Introducción</li>
+						<li>Estilos de programación</li>
+						<li>¿Por qué respetarlos?</li>
+						<li>Principales guías de estilos</li>
+						<li>Conclusiones</li>
+					</ul>
+				</section>
+				<section id="requisitos-previos">
+					<h2>Requisitos previos</h2>
+					<ul>
+						<li>Principios básicos de programación</li>
+						<li>Estructura de un código fuente en distintos lenguajes</li>
+						<li>Experiencia de trabajo de en equipo </li>
+						<li>Uso de control de versiones (opcional)</li>
+					</ul>
+				</section>
+				<section id="comencemos">
+					<h1>¡Comencemos!</h1>
+				</section>
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li>
+							Cuando hablamos español, ¿cuáles son las consecuencias 
+							de no respetar las reglas del idioma?
+						</li>
+						<li>
+							¿Cuántas personas crees que trabajan en el desarrollo 
+							de Linux, Windows, Firefox, Android? 
+						</li>
+					</ul>
+					<aside class="notes">
+						Microsoft tenia 920 para Windows 7
+					</aside>
+				</section>
+				<section id="estilos-programacion">
+					<h2>Estilos de Programación</h2>
+					<ul>
+						<li>
+							También conocido como estándares de programación o convenciones de código.
+						</li>
+						<li>
+							Son reglas para definir como se debe escribir el código fuente de programas.
+						</li>
+						<li>
+							Varían dependiendo del lenguaje porque no todos tienen la misma estructura.
+						</li>
+					</ul>
+				</section>
+				<section id="consejo">
+					<h2>Consejo de programación</h2>
+						<blockquote>
+							“Siempre escribe código como si la persona que termina manteniendo tu código será un
+							psicópata violento que sabe donde vives."
+							<div class="third right">
+								<img src="img/02/Val-Kilmer-Axe.jpg" alt="Val Kilmer loco con un hacha" />
+							</div>
+							<cite>John Woods, 1991.</cite>
+						</blockquote>
+				</section>
+				<section id="estilos-programacion-2">
+					<h2>Estilos de Programación</h2>
+					<ul>
+						<li>
+							Pueden existir variaciones de los estilos de programación
+							dependiendo del proyecto, framework, versión del lenguaje,
+							entre otros. (PHP es un ejemplo de ello)
+						</li>
+						<li>
+							Existen herramientas que permiten validar el código fuente.
+						</li>
+					</ul>
+				</section>
+				<section id="principales-convenciones">
+					<h2>Principales convenciones</h2>
+					<ul>
+						<li>Nombres de variable.</li>
+						<li>Sangría (espacios vs tabuladores)</li>
+						<li>
+							Forma de definir estructuras de control:
+							<ul>
+								<li>Condiciones.</li>
+								<li>Ciclos.</li>
+								<li>Funciones.</li>
+							</ul>
+						</li>
+						<li>Uso de <em>camelCase</em> o <em>underscore_vars</em>.</li>
+						<li>Estructura de comentarios.</li>
+						<li>Espacios entre líneas.</li>
+					</ul>
+				</section>
+				<section id="nombrado-variables">
+					<img src="img/02/variables-tweet.jpg" alt="Tweet sobre nombramiento de variables">
+					<blockquote>
+						<small>"Deberías nombrar una variable usando el mismo cuidado
+						con el cual nombras a tu hijo primogénito”</small>
+						<cite>James O. Coplien.</cite>
+					</blockquote>
+				</section>
+				<section id="codigo-documentado">
+					<img class="half" src="img/02/mojombo-tweet.jpg" alt="Tweet sobre documentación de código">
+					<blockquote>
+						<small>"El código auto-comentado es un mito. El código solo comunica acciones, no
+						intención. Tampoco comunica suposiciones sobre limitaciones de entrada.”</small>
+						<cite>Tom Preston-Werner.</cite>
+					</blockquote>
+					<aside class="notes">
+						Preguntar quien es Tom Presotn Werner
+					</aside>
+				</section>
+				<section>
+					<p>Existen 2 tipos de programadores:</p>
+					<img src="img/02/programadores.jpg" alt="Tipos de programadores">
+					<h2>¿Cuál eres tú?</h2>
+				</section>
+				<section id="tipos-de-estilo">
+					<h2>Principales tipos de espaciado</h2>
+				</section>
+				<section id="principales-tipos-de-espaciado">
+					<h2>Principales tipos de espaciado</h2>
+					<ul>
+						<li>
+							Estilo K&R
+							<ul>
+								<li>Kernel Linux</li>
+								<li>BSD KNF</li>
+							</ul>
+						</li>
+						<li>Estilo Allman</li>
+						<li>Estilo Whitesmith</li>
+						<li>Estilo GNU</li>
+						<li>Estilo Hortman</li>
+						<li>Estilo Pico</li>
+					</ul>
+				</section>
+				<section id="kr" class="code-styles">
+					<h3>Principales tipos de espaciado</h3>
+					<h2>Estilo K&R</h2>
+					<div class="half left">
+						<ul>
+							<li>Creado por Kernighan y Dennis Ritchie.</li>
+							<li>Usando ampliamente en lenguaje C.</li>
+							<li>Las llaves van en una nueva línea.</li>
+							<li>Los bloques de código de una sola línea no llevan llaves</li>
+							<li>No se dejan líneas vacías</li>
+						</ul>
+					</div>
+					<div class="half right">
+						<pre>
+							<code class="c">int main(int argc, char *argv[])
+{
+	...
+	while (x == y) {
+		something();
+		somethingelse();
+		if (some_error)
+			do_correct();
+		else
+			continue_as_usual();
+	}
+	finalthing();
+	...
+}</code>
+						</pre>
+					</div>
+				</section>
+				<section id="kr-kernel-linux" class="code-styles">
+					<h3>Principales tipos de espaciado</h3>
+					<h2>Estilo K&amp;R (Kernel Linux)</h2>
+					<div class="half left">
+						<ul>
+							<li>Utilizado en el desarrollo de Linux. Linus Torvald suele forzar su uso.</li>
+							<li>
+								Las llaves van en una nueva línea para las funciones, de resto en 
+								la misma separada por espacio.
+							</li>
+							<li>Utiliza tabs de 8 espacios.</li>
+							<li>El tamaño máximo de línea son 80 caracteres</li>
+						</ul>
+					</div>
+					<div class="half right">
+						<pre>
+							<code class="c">int power(int x, int y)
+{
+		int result;
+
+		if (y < 0) {
+			   result = 0;
+		} else {
+			   result = 1;
+			   while (y-- > 0)
+					  result *= x;
+		}
+		return result;
+}</code>
+						</pre>
+					</div>
+				</section>
+				<section id="kr-kernel-bsd" class="code-styles">
+					<h3>Principales tipos de espaciado</h3>
+					<h2>Estilo K&amp;R (BSD)</h2>
+					<div class="half left">
+						<ul>
+							<li>Utilizado en los núcleos BSD.</li>
+							<li>Utiliza sangría de 8 espacios en funciones, para el resto sangría de 4 espacios.</li>
+							<li>Si una función no declara variables locales debe dejar una línea</li>
+						</ul>
+					</div>
+					<div class="half right">
+						<pre>
+							<code class="c">int power(int x, int y) {
+
+		if (y < 0) {
+			y++;
+		} else {
+			while (y-- > 0)
+				x++;
+		}
+		return false;
+}</code>
+						</pre>
+					</div>
+				</section>
+				<section id="estilo-allman" class="code-styles">
+					<h3>Principales tipos de espaciado</h3>
+					<h2>Estilo Allman</h2>
+					<div class="half left">
+						<ul>
+							<li>Las llaves van en nueva línea a la misma sangría que la sentencia anterior.</li>
+							<li>Se deja un espacio en las llaves de cierre.</li>
+							<li>Permite identificar fácilmente los bloques al dejar espacios verticales.</li>
+							<li>Influenciado por el lenguaje PASCAL</li>
+						</ul>
+					</div>
+					<div class="half right">
+						<pre>
+							<code class="c">while (x == y)
+{
+   something();
+   somethingElse();
+}
+
+finalthing();</code>
+						</pre>
+					</div>
+				</section>
+				<section id="estilo-whitesmith" class="code-styles">
+					<h3>Principales tipos de espaciado</h3>
+					<h2>Estilo Whitesmith</h2>
+					<div class="half left">
+						<ul>
+							<li>Las llaves van en nueva línea al siguiente nivel de sangría.</li>
+							<li>Se deja un espacio en las llaves de cierre.</li>
+							<li>Identifica fácilmente los bloques al dejar espacios verticales.</li>
+						</ul>
+					</div>
+					<div class="half right">
+						<pre>
+							<code class="c">while (x == y)
+   {
+   something();
+   somethingElse();
+   }
+
+finalthing();</code>
+						</pre>
+					</div>
+					<p class="text-left">
+						<ul>
+							<li>
+								Utilizado por el compilador Whitesmith y usado ampliamente en 
+								los primeros días de Windows, al aparecer en varios libros del S.O.
+							</li>
+						</ul>
+					</p>
+				</section>
+				<section id="estilo-gnu" class="code-styles">
+					<h3>Principales tipos de espaciado</h3>
+					<h2>Estilo GNU</h2>
+					<div class="half left">
+						<ul>
+							<li>Las llaves van en nueva línea pero con sangría 2 espacios. </li>
+							<li>El bloque va con 2 espacios adicionales.</li>
+							<li>Las llamadas a función tienen un espacio antes de los paréntesis.</li>
+							<li>Utilizado por la mayoría de proyectos GNU.</li>
+						</ul>
+					</div>
+					<div class="half right">
+						<pre>
+							<code class="c">static char *
+concat (char *s1, char *s2)
+{
+	while (x == y)
+	 {
+	   something ();
+	   somethingelse ();
+	 }
+	finalthing ();
+}</code>
+						</pre>
+					</div>
+				</section>
+				<section>
+					<h2>Sitios de interés</h2>
+					<ul>
+						<li>
+							<a href="https://msdn.microsoft.com/es-Es/library/ff926074.aspx" target="_blank" title="Ver enlace">
+								Convenciones de código de C#
+							</a>
+						</li>
+						<li>
+							<a href="http://pear.php.net/manual/en/standards.php" target="_blank" title="Ver enlace">
+								Estandares de PHP Pear
+							</a>
+						</li>
+						<li>
+							<a href="http://recursospython.com/pep8es.pdf" target="_blank" title="Ver enlace">
+								PEP 8: guía de convención de Python
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Coding_Style" target="_blank" title="Ver enlace">
+								Guía de estilos de Mozilla
+							</a>
+						</li>
+						<li>
+							<a href="https://lkml.org/lkml/2016/7/8/625" target="_blank" title="Ver enlace">
+								Linus Torvalds sobre comentarios en C
+							</a>
+						</li>
+						<li>
+							<a href="https://codex.wordpress.org/WordPress_Coding_Standards" target="_blank" title="Ver enlace">
+								Estándares de Wordpress (HTML/CSS/JS/PHP)
+							</a>
+						</li>
+						<li>
+							<a href="https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a" target="_blank" title="Ver enlace">
+								Applying the Linus Torvalds “Good Taste” Coding Requirement
+							</a>     
+						</li>
+					</ul>
+				</section>
+				<section id="preguntas">
+					<h2>¿Preguntas?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

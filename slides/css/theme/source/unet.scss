@@ -75,11 +75,8 @@ $linkColorHover: #33aa33;
   .slides section .text-left {
     text-align: left;
   }
-  blockquote {
-    background: #EEE;
-    padding: 25px;
-  }
   cite {
+    clear: both;
     display: block;
     text-align: right;
     margin-top: 15px;
@@ -183,4 +180,12 @@ p.nota {
 
   }
   
+}
+
+/* Estilos de codigo */
+.code-styles {
+  ul {
+    padding-right: 20px;
+    li { font-size: 2.1rem }
+  }
 }
