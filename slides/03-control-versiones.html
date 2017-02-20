@@ -1,0 +1,429 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Control de versiones</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						Control de versiones
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="temas">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li>Aprender los conceptos de control de versiones.</li>
+						<li>Conocer el manejo de versiones en el desarrollo de software.</li>
+						<li>Aprender el uso de una herramienta de control de versiones.</li>
+						<li>Conocer cómo utilizar estas herramientas para apoyar la metodología de desarrollo.</li>
+					</ul>
+				</section>
+				<section id="conocimientos-previos">
+					<h2>Conocimientos previos</h2>
+					<ul>
+						<li>Conocimientos básicos de programación.</li>
+						<li>Conocer el proceso de desarrollo de software.</li>
+						<li>Uso de la terminal del sistema operativo.</li>
+					</ul>
+				</section>
+
+				<section id="objetivo-clase">
+					<h2>Objetivo de la clase</h2>
+					<ul>
+						<li class="fragment">Aprender los conceptos de control de versiones.</li>
+						<li class="fragment">Conocer el manejo de versiones en el desarrollo de software.</li>
+						<li class="fragment">Aprender el uso de una herramienta de control de versiones.</li>
+						<li class="fragment"> Conocer cómo utilizar estas herramientas para mejorar el desarrollo.</li>
+					</ul>
+				</section>
+
+				<section id="comencemos">
+					<h2>¡Comencemos!</h2>
+				</section>
+
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li>¿Cómo manejas los cambios en los archivos durante el desarrollo de un proyecto?</li>
+						<li>¿Cómo intercambias o unes código con tu compañero de desarrollo? </li>
+						<li>¿Cómo llevas los respaldos?</li>
+					</ul>
+					<aside class="notes">
+						Crear un archivo y manualmente hacer cambios en el titulo: Archivo001, Archivo002.
+					</aside>
+				</section>
+
+				<section id="que-es-una-version">
+					<h2>¿Qué es una versión?</h2>
+					<div class="fragment">
+						<p class="text-left">
+							El versionado de software es el proceso de asignación de un nombre, 
+							código o número único, a un software para indicar su nivel de desarrollo.
+						</p>
+						<p class="text-right">
+							Wikipedia (2017)
+						</p>
+						
+					</div>
+				</section>
+
+				<section id="control-de-versiones">
+					<h2>Control de versiones</h2>
+					<p>
+						Es el manejo y administración de los cambios a documentos, programas de
+						computadora, sitios web y colecciones de información.
+					</p>
+					<p>
+						A cada uno de estos <strong>cambios</strong> se le conoce como <strong>revisión</strong> 
+						y se identifican por los siguientes datos: un identificador único, la fecha de creación y autor.
+					</p>
+				</section>
+
+				<section id="como-gestionar-versiones">
+					<h2>¿Cómo gestionar las versiones?</h2>
+				</section>
+
+				<section id="sistemas-control-versiones">
+					<h2>Sistemas de control de versiones</h2>
+					<ul>
+						<li>Facilitan la gestión de cambios al automatizar el proceso.</li>
+						<li>Permiten llevar el historial de cambios de un archivo.</li>
+						<li>Mejora el trabajo en equipo.</li>
+						<li>Facilita el desarrollo desde lugares remotos</li>
+					</ul>
+				</section>
+
+				<section id="grafo-control-versiones">
+					<h2>Grafo de control de versiones</h2>
+					<img src="img/03/grafo.png" alt="Grafo de versiones" >
+					<p>
+						Cada nodo en el grafo representa una versión del programa
+					</p>
+				</section>
+
+				<section id="arquitectura-de-un-scv">
+					<h2>Arquitectura de un S.C.V</h2>
+					<ul>
+						<li><strong>Centralizado:</strong> existe un repositorio central con todos los cambios.</li>
+						<li><strong>Descentralizado:</strong> los cambios se realizan por medio de p2p (peer to peer).</li>
+					</ul>
+					<aside class="notes">
+						Preguntar que es p2p, ejemplo como BitTorrent.
+					</aside>
+				</section>
+
+				<section id="scv-centralizado">
+					<h2>S.C.V. Centralizado</h2>
+					<ul>
+						<li class="fragment">Existe un repositorio central que posee todo el código.</li>
+						<li class="fragment">Este repositorio es administrado por gente con privilegios.</li>
+						<li class="fragment">Todas las tareas fuertes son aprobadas por por estos administradores.</li>
+						<li class="fragment">Cada revisión se identifica con un número.</li>
+						<li class="fragment">Se requiere conexión a la red para almacenar/enviar cambios.</li>
+					</ul>
+					<aside class="notes">
+						Es preferido por muchas intituciones al tener mayor control sobre el código.
+					</aside>
+				</section>
+
+				<section id="ejemplo-centralizado">
+					<h2>Centralizado (ejemplo)</h2>
+					<a href="img/03/centralized.png" target="_blank">
+						<img src="img/03/centralized.png" alt="Repositorio central">
+					</a>
+					<p class="notes">Fuente: Adam Consulting</p>
+				</section>
+
+				<section id="distribuido">
+					<h2>Distribuido</h2>
+					<ul>
+						<li class="fragment">Existen varios repositorios "centrales".</li>
+						<li class="fragment">No requiere tanta conexión a la red y por ello mas rápido.</li>
+						<li class="fragment">Permite realizar cambios que no se van a publicar en el repositorio.</li>
+						<li class="fragment">Cada revisión se identifica mediante un código (cada servidor tiene su propia numeración).</li>
+					</ul>
+					<aside class="notes">
+						Utilizado por proyectos abiertos y los cambios se aprueban en el principal servidor
+					</aside>
+				</section>
+
+				<section id="ejemplo-distribuido">
+					<h2>Distribuido (ejemplo)</h2>
+					<a href="img/03/distributed.png" target="_blank">
+						<img src="img/03/distributed.png" alt="Modelo Distribuido">
+					</a>
+					<p class="notes">Fuente: Adam Consulting</p>
+				</section>
+
+				<section>
+					<h2>Implementaciones existentes</h2>
+					<ul>
+						<li><strong>Centralizados:</strong> CVS, Subversion, Perforce.</li>
+						<li><strong>Distribuidos:</strong> GIT, Mercurial, Bazaar, Team Foundation Server.</li>
+					</ul>
+					<aside class="notes">
+						Microsoft Utiliza GIT en Windows, pesa 300GB
+					</aside>
+				</section>
+
+				<section id="git" data-background-transition="zoom" data-background="img/03/git-bg.jpg">
+					<!--<h1>GIT</h1>-->
+				</section>
+
+				<section id="git2">
+					<h2>GIT</h2>
+					<ul>
+						<li>Distribuido</li>
+						<li>Creado en el 2005 por Linus Torvalds.</li>
+						<li>Enfocado en la integridad de datos y rapidez.</li>
+						<li>Cada revisión se identifica mediante un cifrado basado en el historial.</li>
+						<li>Compatible con protocolos existentes HTTP, SSH, rsync.</li>
+					</ul>
+				</section>
+
+				<section id="historia-de-git">
+					<h2>Historia de GIT</h2>
+					<p>
+						Principalmente creado para mantener el proyecto Linux por problemas de copyright con
+						BitKeeper.
+					</p>
+					<img src="img/03/linus.png" alt="Linus on GIT" class="fragment">
+				</section>
+
+				<section id="git-humor">
+					<h2>Git (Humor)</h2>
+					<img src="img/03/git-xkcd.jpg" alt="Humor de git">
+				</section>
+
+				<section id="comandos">
+					<h1>GIT</h1>
+					<h2>Comandos básicos</h2>
+				</section>	
+
+				<section id="init">
+					<h2>Iniciar u obtener <br> un repositorio</h2>
+					<p>Existen 2 formas de hacerlo:</p>
+					<ul>
+						<li>
+							<strong>Local</strong>: se ejecuta el comando:
+							<pre><code class="bash">git init</code></pre>.
+						</li>
+						<li>
+							<strong>Desde un servidor:</strong> se clona todo el repositorio ejecutando:
+							<pre><code class="bash">git clone URL_DEL_REPOSITORIO</code></pre>.
+						</li>
+					</ul>
+					<aside class="notes">
+						En la url se pueden especificar protocolos como SSH, HTTPS, RSYNC.
+					</aside>
+				</section>				
+
+				<section id="cambios">
+					<h2>Chequear los cambios en un directorio</h2>
+					<ul>
+						<li>
+							Para listar los archivos con cambios en su contenido se
+							hace mediante
+							<pre><code class="bash">git status</code></pre>
+						</li>
+						<li>
+							En caso de advertir que algunos archivos no están siendo monitoreados,
+							se pueden agregar con el commando:
+							<pre><code class="bash">git add RUTA_DEL_ARCHIVO_O_DIRECTORIO</code></pre>
+						</li>
+					</ul>
+				</section>					
+
+				<section id="commit">
+					<h2>Almacenar los cambios en <br>el historial (Commit)</h2>
+					<ul>
+						<li>
+							Al momento de registrar un cambio, se debe adjuntar un breve mensaje
+							describiendo los cambios realizados, esto permite a los demás programadores
+							conocer el <em>commit</em>.
+							<pre><code class="bash">git commit -am "Mensaje"</code></pre>
+						</li>
+					</ul>
+					<p class="note">
+						El parametro <strong>-a</strong> indica que se van a registar todos los cambios
+					</p>
+				</section>	
+
+				<section id="history">
+					<h2>Historial de cambios</h2>
+					<ul>
+						<li>
+							Para ver todos los commits realizados (el historial de cambios)
+							se hace mediante:
+							<pre><code class="bash">git log</code></pre>
+						</li>
+					</ul>
+				</section>		
+
+				<section id="push">
+					<h2>Enviar cambios al <br> servidor remoto</h2>
+					<ul>
+						<li>
+							Una vez que se ha realizado un <em>commit</em>, para enviar
+							los cambios a un repositorio remoto (en caso de existir), se 
+							realiza usando:
+							<pre><code class="bash">git push origin</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section id="fetch">
+					<h2>Descargar cambios del <br> servidor remoto</h2>
+					<ul>
+						<li>
+							Si desea descargar los cambios desde el servidor remoto,
+							pero <strong>sin aplicarlos</strong> al código fuente, se hace
+							mediante:
+							<pre><code class="bash">git fetch</code></pre>
+						</li>
+						<li>
+							En caso de querer aplicar los cambios en el código actual:
+							<pre><code class="bash">git pull</code></pre>
+						</li>
+					</ul>
+					<aside class="notes">
+						Git conserva siempre los cambios, en caso de hacer un pull y no se han
+						registrado cambios locales, el obliga a registrarlos antes de
+						hacer commit.
+					</aside>
+				</section>				
+
+				<section id="asignacion">
+					<h2>Asignación</h2>
+					<p>Investigar sobre:</p>
+					<ul>
+						<li>Branches (Ramas)</li>
+						<li>Merge (unir ramas)</li>
+						<li>Conflictos</li>
+					</ul>
+				</section>
+
+				<section id="conflicto">
+					<h2>Conflictos</h2>
+					<img src="img/03/EjemploDeConflict.png">
+					<p>Ejemplo de un conflicto</p>
+				</section>
+
+				<section id="workflow">
+					<h2>Flujo de trabajo</h2>
+					<p>
+						<a href="img/03/workflow.png" data-lightbox="workflow" target="_blank">
+							<img src="img/03/workflow.png" class="third" alt="Flujo de trabajo con GIT">
+						</a>
+					</p>
+				</section>
+
+				<section id="enlaces">
+					<h2>Enlaces recomendados</h2>
+					<ul>
+						<li>
+							<a href="https://try.github.io/levels/1/challenges/1" target="_blank">
+								Tutorial para aprender GIT (Recomendado)
+							</a>
+						</li>
+						<li>
+							<a href="http://git-scm.com/book/es/v1/Empezando-Acerca-del-control-de-versiones" target="_blank">
+								Introducción al control de versiones
+							</a>
+						</li>
+						<li>
+							<a href="http://adamaconsulting.blogspot.com/2008/05/sistemas-de-control-de-versiones.html" target="_blank">
+								Sistema de control de versiones
+							</a>
+						</li>
+						<li>
+							<a href="https://try.github.io/levels/1/challenges/1" target="_blank">Tutorial para aprender GIT</a>
+						</li>
+						<li>
+							<a href="https://confluence.atlassian.com/display/BITBUCKET/Bitbucket+101" target="_blank">
+								Manejo de repositorios con Bitbucket (inglés)
+							</a>
+						</li>
+						<li>
+							<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">
+								Guía de como debería ser un flujo de trabajo con GIT
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section id="preguntas">
+					<h2>¿Preguntas?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

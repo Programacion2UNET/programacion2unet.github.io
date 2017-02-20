@@ -72,9 +72,11 @@ $linkColorHover: #33aa33;
   .nomargin {
     margin: 0;
   }
-  .slides section .text-left {
-    text-align: left;
+  .slides section {
+    .text-left { text-align: left }
+    .text-right { text-align: right }
   }
+  
   cite {
     clear: both;
     display: block;
@@ -112,6 +114,15 @@ $linkColorHover: #33aa33;
   }
   ol {
     text-align: left;
+  }
+
+  p.note {
+    background: #880000;
+    border: 2px solid #660000;
+    box-shadow: 3px 3px 2px #333;
+    color: #EEAAAA;
+    padding: 20px 15px;
+    font-size: 1.8rem;
   }
 }
 
