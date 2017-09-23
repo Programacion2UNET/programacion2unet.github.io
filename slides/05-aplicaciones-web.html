@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Programación II: Web</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						El navegador web
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="temas">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li class="fragment">DOM (Data Object Manipulation)</li>
+						<li class="fragment">Comprender el funcionamiento de un navegador.</li>
+						<li class="fragment">
+							Desarrollo aplicaciones web utilizando las últimas tendencias.
+						</li>
+					</ul>
+				</section>
+
+				<section id="conocimientos-previos">
+					<h2>Conocimientos previos</h2>
+					<ul>
+						<li>Conceptos de estructura de datos</li>
+						<li>Conceptos básicos programación básica</li>
+						<li>Conocimientos básicos sobre comunicación en red.</li>
+						<li>Definición de un intérprete.</li>
+						<li>Comprender la arquitectura cliente-servidor.</li>
+					</ul>
+				</section>
+
+				<section id="objetivo-clase">
+					<h2>Objetivo de la clase</h2>
+					<ul>
+						<li class="fragment">Desarrollo de aplicaciones web dinámica.</li>
+						<li class="fragment">Conocer que es el DOM.</li>
+						<li class="fragment">Comprender el funcionamiento un navegador web.</li>
+					</ul>
+				</section>
+
+				<section id="comencemos">
+					<h2>¡Comencemos!</h2>
+				</section>
+
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li>¿De que partes está compuesto un sitio web?</li>
+						<li>¿Cuál es la forma de acceder a la web?</li>
+					</ul>
+				</section>
+
+				<section id="dom">
+					<h1>HTML DOM</h1>
+				</section>
+
+				<section id="html-dom">
+					<h2>HTML DOM</h2>
+					<blockquote>
+						"Es una interfaz de lenguaje neutral y una plataforma 
+						que permite a los programas y secuencias de comandos para
+						dinámicamente acceder y actualizar el contenido, estructura,
+						y estilo de un documento."
+						<cite>W3C</cite>
+					</blockquote>
+				</section>
+
+				<section id="html-dom-meme">
+					<h2>HTML DOM</h2>
+					<div class="half left">
+						<img src="img/04/domMeme.jpg" alt="DOM What">
+					</div>
+					<div class="half left fragment">
+						<blockquote>
+							El <em>HTML DOM</em> es un estándar para obtener,
+							cambiar, agregar o borrar elementos HTML.
+							<cite>W3C</cite>
+						</blockquote>
+					</div>
+					<p class="fragment">
+						DOM significa: <strong><em>Data Object Manipulation</em></strong>.
+					</p>
+				</section>
+
+				<section id="que-es-dom">
+					<h2>¿Qué es el DOM?</h2>
+					<p class="text-left">
+						El <em>HTML DOM</em> define:
+					</p>
+					<ul>
+						<li>Los elementos del HTML como objetos.</li>
+						<li>Las propiedades de todos los elementos HTML.</li>
+						<li>Los métodos para acceder a todos los elementos.</li>
+						<li>Los eventos para todos los elementos.</li>
+					</ul>
+				</section>
+
+				<section id="doom-tree">
+					<h2>El árbol DOM</h2>
+					<p>
+						La mayoría de navegadores transforman el código HTML
+						en un árbol DOM para facilitar su interpretación 
+						y manipulación.
+					</p>
+
+					<img src="img/04/domTree.gif" alt="Arbol DOM">
+					<p class="smaller">Fuente: 
+						<a href="http://www.w3schools.com/js/js_htmldom.asp" target="_blank">
+							W3C.
+						</a>
+					</p>
+				</section>
+
+				<section id="ejemplo-de-uso-del-dom">
+					<h2>Ejemplo de uso del DOM</h2>
+					
+					<pre>
+						<code class="html">&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    &lt;script&gt;
+       var txt = "Texto agregado luego de la carga";
+       document.getElementById("demo").innerHTML = txt;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+					</pre>
+					<p class="note">
+						<strong>document</strong> es una variable global 
+						que representa el documento en la pestaña actual
+						del navegador
+					</p>
+
+					<aside class="notes">
+						Explicar document, getElementById, innerHTML,
+						como es el texto es una propiedad del nodo.
+					</aside>
+				</section>
+
+				<section id="intro-funcionamiento-navegador">
+					<h2>Funcionamiento del navegador web</h2>
+					<img src="img/04/browsers.png" alt="Principales navegadores web">
+					<p>
+						Aprenderemos el proceso de cómo el navegador
+						web muestra una página a través de código HTML.
+					</p>
+				</section>
+
+				<section id="navegador-obtiene-data">
+					<h3>Funcionamiento del navegador</h3>
+
+					<a href="img/04/browserNetWorks.jpg" target="_blank"> 
+						<img src="img/04/browserNetWorks.jpg" alt="Como obtiene el paquete de red" class="twothird">
+					</a>
+
+					<p>
+						Proceso de la descarga de datos desde los servidores Web.
+					</p>
+
+				</section>
+
+				<section id="componentes-navegador">
+					<h2>¿Cómo funciona un navegador?</h2>
+					<h3>Principales componentes</h3>
+					<ul>
+						<li>La interfaz de usuario (GUI).</li>
+						<li>El motor del navegador.</li>
+						<li>El motor de renderizado.</li>
+						<li>Gestión de red.</li>
+						<li><em>Backend</em> de la interfaz de usuario.</li>
+						<li>Intérprete de Javascript.</li>
+						<li>Almacenamiento de datos.</li>
+					</ul>
+					<aside class="notes">
+						La interfaz de usuario: la barra de herramientas, botones de atras
+						y adelante, lo que se ve menos la página, etc. MOTOR: la
+						interfaz para consultar el motor de renderizado. RENDER ENGINE: se
+						encarga de mostrar el contenido, parsea el HTML y CSS. NETWORKING:
+						genera las peticiones HTTP. UIBACKEND: dibuja los widgets, combos,
+						inputs. DATASTORE: cookies, base de datos, etc.
+					</aside>
+				</section>
+
+				<section id="componentes-navegador-grafico">
+					<h2>Principales componentes del Navegador</h2>
+					<img class="noborder" src="img/04/layers.png" alt="Capas de un navegador">
+					<p>
+						Fuente:
+						<a href="http://taligarsiel.com/">Tali Garsiel's site</a>
+					</p>
+				</section>
+
+
+				<section id="motor-renderizado">
+					<h2>Motor de renderizado de un navegador</h2>
+					<ul>
+						<li>Se encarga de mostrar el contenido en la pantalla del navegador.</li>
+						<li>
+							Generalmente muestra documentos HTML e imágenes, pero actualmente
+							también muestra vídeos, contenido externo a través de complementos
+							(plugins de Flash, PDF).
+						</li>
+						<li>
+							Firefox e Internet Explorer poseen motores propios, mientras que Opera,
+							Safari y Chrome se apoyan en Webkit/Blink.
+						</li>
+						<li>Obtiene el documento desde la capa de red.</li>
+					</ul>
+				</section>
+
+				<section id="motor-renderizado-2">
+					<h2>Navegador</h2>
+					<h3>Motor de renderizado</h3>
+					<ol>
+						<li>Interpreta el HTML y construye el árbol DOM.</li>
+						<li>Construye el árbol de renderizado.</li>
+						<li>Organiza las capas y disposiciones del árbol de renderizado.</li>
+						<li>Dibuja el árbol de renderizado.</li>
+					</ol>
+
+					<aside class="notes">
+						Hablar del arbol de renderizado que solo se usa para dibujar
+						y es una copia del DOM.
+					</aside>
+				</section>
+
+				<section id="ejemplo-construccion-dom">
+					<h2>Ejemplo de <br>construcción del DOM</h2>
+					<p>Teniendo el siguiente código HTML:</p>
+					<pre>
+						<code class="html"> &lt;html&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+      Hola UNET
+    &lt;/p&gt;
+    &lt;div&gt;&lt;img src="ejemplo.png"/&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+					</pre>
+				</section>
+
+				<section id="ejemplo-construccion-dom-2">
+					<h2>Ejemplo de <br>construcción del DOM</h2>
+					<p>Genera el siguiente árbol DOM</p>
+					<img class="noborder" src="img/04/domTreeCodeExample.png" alt="Ejemplo del DOM">
+				</section>
+
+				<section id="interpretacion-css">
+					<h2>Interpretación del CSS</h2>
+					<p>
+						Algo similar ocurre con el CSS, para construir un árbol y
+						establecer la prioridad de las reglas.
+					</p>
+					<img class="noborder" src="img/04/cssParser.png" alt="Interpretación del CSS">
+				</section>
+
+				<section id="arbol-renderizado">
+					<h2>Árbol de renderizado</h2>
+					<p>
+						Contiene solo los elementos que se dibujarán en la pantalla.
+					</p>
+					<img class="noborder" src="img/04/renderTree.png" alt="Árbol de renderizado">
+					<aside class="notes">
+						Explicar por ejemplo los campos hidden, elementos de JS, etc.
+					</aside>
+				</section>
+
+				<section id="arbol-renderizado-ejemplo">
+					<h2>Árbol de renderizado</h2>
+					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZTnIxIA5KGw" frameborder="0" allowfullscreen></iframe>
+
+					<p>Cómo Firefox dibuja un sitio web</p>
+				</section>
+
+				<section id="disposición">
+					<h2>Aplicación de la disposición</h2>
+					<p>
+						Organiza como se ajustarán los elementos en la pantalla.
+					</p>
+					<img class="noborder" src="img/04/layout.jpg" alt="Modelo de Caja de CSS">
+					<p class="smaller">Modelo de caja de CSS2</p>
+					<aside class="notes">
+						Explicar inline, block, table, etc. Dibujar cuadros.
+					</aside>
+				</section>
+
+				<section id="conferencia-como-funciona-navegador">
+					<h2>Charla de cómo funciona un navegador</h2>
+					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SmE4OwHztCc" frameborder="0" allowfullscreen></iframe>
+				</section>
+
+				<section id="enlaces">
+					<h2>Enlaces recomendados</h2>
+					<ul>
+						<li>
+							<a href="http://www.w3schools.com/jsref/dom_obj_document.asp" target="_blank">
+								Definición de las propiedades del DOM.
+							</a>
+						</li>
+						<li>
+							<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm" target="_blank">
+								Artículo detallado sobre como funciona un navegador.
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>¿Preguntas?</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
