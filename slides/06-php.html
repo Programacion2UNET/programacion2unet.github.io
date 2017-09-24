@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Programación II: Web</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						Aplicaciones web con PHP/MySQL
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="temas">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li class="fragment">El Frontend/Backend de una aplicación</li>
+						<li class="fragment">Servidor Web</li>
+						<li class="fragment">Introducción a PHP</li>
+						<li class="fragment">Aplicaciones web con PHP</li>
+						<li class="fragment">Introducción a base de datos con MySQL</li>
+					</ul>
+				</section>
+
+				<section id="conocimientos-previos">
+					<h2>Conocimientos previos</h2>
+					<ul>
+						<li>Conceptos básicos programación básica</li>
+						<li>Conocimientos básicos del funcionamiento de Internet</li>
+						<li>Manejo de archivos</li>
+						<li>Comprender la arquitectura cliente-servidor.</li>
+					</ul>
+				</section>
+
+				<section id="objetivo-clase">
+					<h2>Objetivo de la clase</h2>
+					<ul>
+						<li class="fragment">Conocer como funciona una aplicación web.</li>
+						<li class="fragment">Desarrollo de páginas dinámicas con PHP</li>
+						<li class="fragment">Almacenamiento persistente de datos en base de datos</li>
+						<li class="fragment">Implementar una aplicación web</li>
+					</ul>
+				</section>
+
+				<section id="comencemos">
+					<h2>¡Comencemos!</h2>
+				</section>
+
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li class="fragment">¿Como está desarrollada una aplicación web?</li>
+						<li class="fragment">¿Donde se encuentran alojadas?</li>
+						<li class="fragment">¿Donde se guarda la información?</li>
+					</ul>
+				</section>
+
+				<section id="frontend-backend">
+					<h2>Frontend y Backend</h2>
+					<p>
+						Son los términos utilizados para identificar la capa de presentación
+						de la capa de acceso a datos respectivamente.
+					</p>
+					<p>
+						El <em>Frontend</em> es la capa que interactúa con el usuario. 
+						Recibe las acciones del mismo y las envía al <em>Backend</em>.
+						Éste interpreta las acciones realizadas, aplica la lógica del negocio,
+						accede y procesa los datos para entregarlos de nuevo al <em>Frontend</em>.
+					</p>
+					<aside class="notes">
+						Hablar de las ofertas de trabajo, fullstack, base de datos, MVC, etc.
+					</aside>
+				</section>
+
+				<section id="frontend-backend-2">
+					<h2>Frontend y Backend</h2>
+					<a href="img/06/frontend-backend.png" target="_blank" title="Ver en tamaño completo">
+						<img src="img/06/frontend-backend.png">
+					</a>
+					<p>
+						<small>
+						Podemos decir que el <em>frontend</em> es lo que corre en el navegador
+						y el <em>backend</em> en los servidores.
+						</small>
+					</p>
+				</section>
+
+				<section id="servidor-web">
+					<h1>El servidor web</h1>
+					<aside class="notes">
+						Preguntar qué es un servidor web.
+					</aside>
+				</section>
+
+				<section id="servidor-web-definicion">
+					<h2>Servidor web</h2>
+					<p>
+						Es un programa que procesa una aplicación para producir contenido
+						estático (HTML, CSS, imágenes, archivos, entre otros) y entregarlo
+						mediante el protocolo HTTP.
+					</p>
+					<aside class="notes">
+						Generalmente el contenido se entrega a través del navegador web
+					</aside>
+				</section>
+
+				<section id="servidor-web-backend">
+					<h2>Servidor web</h2>
+					<a href="img/06/frontend-backend.jpg" target="_blank" title="Ver en tamaño completo">
+						<img src="img/06/frontend-backend.jpg">
+					</a>
+					<p>
+						<small>
+							El servidor web se ubica en el <em>backend</em>, se comunica con 
+							otros servidores donde cada uno puede estar o no en 
+							su propio hardware.
+						</small>
+					</p>
+				</section>
+
+				<section id="ejemplo-servidor-web">
+					<h2>Servidores de Google</h2>
+					<a href="img/06/servidor-google.com.jpg" target="_blank" title="Ver en tamaño completo">
+						<img  class="half"  src="img/06/servidor-google.com.jpg">
+					</a>
+					<p>
+						<small>
+							Fuente: <strong>
+								<a href="https://www.google.com/about/datacenters/gallery/#/" target="_blank">
+									Google Centro de datos
+								</a></strong>
+						</small>
+					</p>
+				</section>
+
+				<section id="servidores-implementaciones">
+					<h2>Servidor Web</h2>
+					<h3>Principales implementaciones</h3>
+					<ul>
+						<li>Apache (Apache Foundation)</li>
+						<li>IIS (Microsoft)</li>
+						<li>nginx (Nginx, Inc.)</li>
+						<li>Lighttpd</li>
+					</ul>
+					<aside class="notes">
+						Nombrar la importancia de Apache en software libre, que viene de a-patch-y,
+						impulsó Linux, etc.
+					</aside>
+				</section>
+	
+				<section id="estadisticas-servidores-web">
+					<h2>Cuota de mercado actual</h2>
+					<a href="img/06/market-share.png" target="_blank" title="Ver en tamaño completo">
+						<img  class="half"  src="img/06/market-share.png">
+					</a>
+					<p>
+						<small>
+							Fuente: <strong>
+								<a href="https://news.netcraft.com/archives/2017/09/11/september-2017-web-server-survey.html" target="_blank">
+									Netcraft
+								</a></strong>
+						</small>
+					</p>
+				</section>
+
+				<section id="php">
+					<h1>PHP</h1>
+				</section>
+
+				<section id="php-2">
+					<h2>PHP</h2>
+					<div class="third left">
+						<img src="img/06/Rasmus.png" alt="Rasmus Lerdorf">
+					</div>
+					<div class="twothird left">
+						<ul >
+							<li>
+								Creado en 1995 por 
+								<a href="https://lerdorf.com/" title="Perfil en Twitter" target="_blank">
+									Rasmus Lerdorf
+								</a>
+								bajo el nombre Personal Home Pages.
+							</li>
+							<li>
+								 Andi Gutmans y Zeev Suraski rescribieron el analizador
+								 para crear PHP 3. (PHP: Hipertext Preprocessor)
+							</li>
+							<li>
+								Es el lenguaje mas utilizado en el desarrollo web.
+							</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						Inicialmente creado para paginas propias, luego se convirtió en un lenguaje.
+					</aside>
+				</section>
+
+				<section id="php-3">
+					<h2>PHP</h2>
+					<div class="third left">
+						<img class="noborder" src="img/06/Webysther_20160423_-_Elephpant.svg.png" alt="Rasmus Lerdorf">
+					</div>
+					<div class="twothird left">
+						<ul >
+							<li>
+								Posee una sintaxis y nombres de funciones similar a la de C.
+							</li>
+							<li>
+								Su parte de programación orientada a objetos está
+								basada en Java.
+							</li>
+						</ul>
+					</div>
+					<ul>
+						<li>
+							Es un lenguaje <strong>no tipado</strong>, muy flexible,
+							fácil de aprender, con mucha documentación en línea.
+						</li>
+					</ul>
+				</section>
+
+				<section id="php-4">
+					<h2>PHP</h2>
+					<div class="half left">
+						<h3>Ventajas</h3>
+						<ul>
+							<li>Pequeña curva de aprendizaje.</li>
+							<li>
+								Gran cantidad de: documentación, expertos, liberías,
+								frameworks.
+							</li>
+							<li>
+								Es multiplataforma.
+							</li>
+							<li>Flexible</li>
+						</ul>
+					</div>
+					<div class="half left">
+						<h3>Desventajas</h3>
+						<ul >
+							<li>No está diseñado para alto rendimiento.</li>
+							<li>Mezcla de POO e imperativa.</li>
+							<li>Gran cantidad de desarrolladores de PHP (menos remuneración)</li>
+							<li>Flexible</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="odio-php">
+					<img src="img/06/odio-php.gif">
+					<h2>¿Por qué el odio a PHP?</h2>
+					<aside class="notes">
+						Por su flexibilidad, permite escribir codigo feo, escribir lógica en la vista.
+						PHP era muy lento, con fallas de diseño en el lenguaje, una parte era C 
+						y otra Java.
+					</aside>
+				</section>
+
+				<section id="caracteristicas-php">
+					<h2>PHP</h2>
+					<h3>Principales características (1/2)</h3>
+					<ul>
+						<li>Todo código va entre <pre><code class="php">&lt;?php ?></code></pre></li>
+						<li>
+							Las variables comienzan con <strong>$</strong>
+							<pre><code class="php">$miVariable = 'HOLA UNET'</code></pre>
+						</li>
+						<li>
+							Las concatenación es con <strong>.</strong> (punto)
+							y el acceso a atributos con <strong>-></strong>
+							<pre><code class="php">$miObjeto->atributo = 'Sr(a) ' . $nombre </code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section id="caracteristicas-php-2">
+					<h2>PHP</h2>
+					<h3>Principales características (2/2)</h3>
+					<ul>
+						<li>
+							Los arreglos pueden poseer indices númericos o cadenas de texto.
+							<pre><code class="php">
+$arreglo = ['a'=>1, 'b'=>2, 'c'=> 3];
+echo $arreglo['a']; // Imprime 1
+							</code></pre>
+						</li>
+						<li>
+							Generalmente existe una función para todo.
+						</li>
+						<li>
+							Constantes máginas como: <em>__LINE__, __FILE__, __DIR__,
+							__FUNCTION__, __CLASS__, __METHOD__, __NAMESPACE__</em>.
+						</li>
+					</ul>
+				</section>
+
+				<section id="quienes-usan-php">
+					<h2>¿Quiénes usan PHP?</h2>
+					<ul>
+						<li>Facebook (usan Hack)</li>
+						<li>Wikipedia</li>
+						<li>Yahoo</li>
+						<li>WordPress</li>
+						<li>Tumblr</li>
+						<li>Mailchimp</li>
+						<li>UNET</li>
+					</ul>
+				</section>
+
+				<section id="enlaces">
+					<h2>Enlaces recomendados</h2>
+					<ul>
+						<li>
+							<a href="http://www.w3schools.com/jsref/dom_obj_document.asp" target="_blank">
+								Definición de las propiedades del DOM.
+							</a>
+						</li>
+						<li>
+							<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm" target="_blank">
+								Artículo detallado sobre como funciona un navegador.
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>¿Preguntas?</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

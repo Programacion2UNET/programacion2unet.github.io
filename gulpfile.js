@@ -7,7 +7,7 @@ gulp.task('default', ['connect','watch']);
 
 gulp.task('connect', function() {
   connect.server({
-    port: 80,
+    port: 8080,
     livereload: true
   });
 });
