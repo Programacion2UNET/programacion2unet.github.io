@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Programación II: Sitios PHP con MySQL</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						Sitios PHP con MySQL
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="temas">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li class="fragment">Introducción a base de datos</li>
+						<li class="fragment">MySQL</li>
+						<li class="fragment">PHP + MySQL</li>
+						<li class="fragment">Ejemplos de consultas con PHP/MySQL</li>
+						<li class="fragment">Consideraciones al hacer consultas</li>
+					</ul>
+				</section>
+
+				<section id="conocimientos-previos">
+					<h2>Conocimientos previos</h2>
+					<ul>
+						<li>Desarrollo básico de páginas dinámicas</li>
+						<li>Conceptos básicos de manejo de archivos</li>
+						<li>Teoría de conjuntos</li>
+					</ul>
+				</section>
+
+				<section id="objetivo-clase">
+					<h2>Objetivo de la clase</h2>
+					<ul>
+						<li class="fragment">Persistencia de datos en la web</li>
+						<li class="fragment">Almacenamiento persistente de datos en base de datos</li>
+						<li class="fragment">Implementar una aplicación web con persitencia de datos</li>
+					</ul>
+				</section>
+
+				<section id="comencemos">
+					<h2>¡Comencemos!</h2>
+				</section>
+
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li class="fragment">¿Cómo almacenar la información de una aplicación?</li>
+						<li class="fragment">¿Cómo hacen Control de Estudios, Facebook y Youtube, Movistar, Bancos?</li>
+						<li class="fragment">¿Donde se guarda la información?</li>
+					</ul>
+					<aside class="notes">
+						Preguntar por la velocidad de obtención de datos. Si han usado BD y que
+						mas adelante lo veran. Detenerse en cada ejemplo.
+					</aside>
+				</section>
+
+				<section id="base-datos">
+					<h1>¿Qué es una base de datos?</h1>
+				</section>
+
+				<section id="base-datos-definicion">
+					<h2>¿Qué es una base de datos?</h2>
+					<div class="twothird left">
+						<ul>
+							<li>
+								Conjunto de datos pertenecientes a un mismo tópico.
+							
+								 Almacenados de una forma estructurada y sistematica para su posterior uso.
+							</li>
+							<li>
+								Los datos se guarda en <strong>tablas</strong>, donde en cada una de ellas
+						hay <strong>filas</strong> que almacenan <strong>registros</strong>.								
+							</li>
+						</ul>
+					</div>
+					<div class="third left">
+						<img src="img/07/BD.png" alt="Base de datos" class="noborder">
+						<p class="clear">
+						<small>
+							<em><strong>Nota:</strong> Generalmente se identifica con este ícono</em>
+						</small>
+					</p>
+					</div>
+				</section>
+
+				<section id="sql-ddl">
+					<h2>SQL: Structured Query Language</h2>
+					<p>
+						Lenguaje para acceder a un SGBD para 
+						realizar operaciones sobre ella.
+					</p>
+					<div class="half left">
+						<h3>DDL: Data Definition Language</h3>
+						<p>
+							Se utilizan para crear o modificar la estructura de tablas u objetos de la BD: 
+							<code>CREATE, ALTER, DROP, TRUNCATE</code>
+						</p>	
+					</div>
+					<div class="half left">
+						<h3>DML: Data Manipulation Language</h3>
+						<p>
+							Se utiliza para gestionar la información dentro de las tablas: <br>
+							<code>
+								SELECT, INSERT, UPDATE, DELETE
+							</code>
+						</p>
+					</div>
+				</section>
+
+				<section id="ejemplo-ddl">
+					<h2>Ejemplo de DDL</h2>
+					<p>Creación de una tabla</p>
+					<pre><code class="sql">
+CREATE TABLE nombre_tabla (
+	columna1 tipo_dato parametros,
+	columna2 tipo_dato parametros,
+	columna3 tipo_dato parametros,
+	....
+); 
+					</code>
+					</pre>
+				</section>
+
+				<section id="ejemplo-dml">
+					<h2>Ejemplo de DML</h2>
+					<p>Consulta de algunos datos de una tabla</p>
+					<pre><code class="sql">
+SELECT column1, column2, ...
+FROM table_name; 
+					</code>
+					</pre>
+					<p>Consulta de todos los datos de una tabla</p>
+					<pre><code class="sql">
+SELECT *
+FROM table_name; 
+					</code>
+					</pre>
+				</section>
+
+				<section id="mysql">
+					<div class="half center">
+						<img src="img/07/mysql-logo.png" class="noborder" alt="MySQL Logo">
+					</div>
+					<p class="fragment clear">
+						Es un SGBD desarrollado bajo GPL/Licencia comercial de Oracle. Es 
+						el gestor mas utilizado en el mundo debido a su facilidad, licenciamiento, 
+						"rapidez".
+					</p>
+					<aside class="notes">
+						Preguntar que es GPL
+					</aside>
+				</section>
+
+				<section id="mysql-definicion">
+					<h2>MySQL</h2>
+					<div class="half left">
+						<h3>Ventajas</h3>
+						<ul>
+							<li>Es de código abierto.</li>
+							<li>Posee un buen rendimiento.</li>
+							<li>Soporta gran variedad de S.O.</li>
+							<li>Bajo costo.</li>
+						</ul>
+					</div>
+					<div class="half left">
+						<h3>Desventajas</h3>
+						<ul>
+							<li>Controlado por Oracle.</li>
+							<li>No posee tantas funcionalidades como Oracle DB o Postgres.</li>
+							<li>No está diseñada para base de datos gigantes</li>
+						</ul>
+					</div>
+				</section>
+				<section id="como-luce-una-bd">
+					<h1>¿Cómo luce una BD?</h1>
+					<aside class="notes">
+						Mostrar como es una base de datos
+					</aside>
+				</section>
+				<section id="mysql-php">
+					<div class="half center">
+						<img src="img/07/php-mysql.png" alt="MySQL Logo">
+					</div>
+					<h2 class="clear">PHP + MySQL</h2>
+					<p>
+						PHP posee integración nativa con MySQL. Posee una serie de funciones para
+						interactuar con la B.D. y clases para implementar acceso usando
+						POO.
+					</p>
+					<aside class="notes">
+						Preguntar que es POO.
+					</aside>
+				</section>
+
+				<section id="pasos-mysql-php">
+					<h2>Pasos para usar la BD</h2>
+					<div class="third left">
+						<img src="img/07/php+mysql.png" class="noborder" alt="PHP y MySQL">
+					</div>
+					<div class="twothird left">
+						<ol>
+							<li>Iniciar la conexión a la B.D.</li>
+							<li>Seleccionar la base de datos.</li>
+							<li>Preparar la sentencia SQL.</li>
+							<li>Ejecutar la sentencia SQL.</li>
+							<li>Leer los resultados del comando.</li>
+							<li>Cerrar la conexión y liberar RAM.</li>
+						</ol>
+					</div>
+					<br class="clear">
+					<p class="note">
+						Para programación estructurada se usa 
+						<code>
+							<a href="https://secure.php.net/manual/es/book.mysqli.php" target="_blank">mysqli</a>
+						</code>
+						 y para POO se usa
+						<code>
+							<a href="https://secure.php.net/manual/es/intro.pdo.php" target="_blank">PDO</a>
+						</code>.
+					</p>
+				</section>
+
+				<section id="enlaces">
+					<h2>Enlaces recomendados</h2>
+					<ul>
+						<li>
+							<a href="https://secure.php.net/manual/es/mysql.examples-basic.php" target="_blank">
+								Ejemplo de conexión a  MySQL desde PHP
+							</a>
+						</li>
+						<li>
+							<a href="https://secure.php.net/manual/es/book.mysqli.php" target="_blank">Documentación oficial sobre mysqli</a>
+						</li>
+						<li>
+							<a href="https://secure.php.net/manual/es/intro.pdo.php" target="_blank">Documentación oficial sobre MySQL PDO</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>¿Preguntas?</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
