@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Programación II: Introducción a MVC</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						Introducción a MVC
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="temas">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li class="fragment">¿Qué es un patrón de diseño?</li>
+						<li class="fragment">MVC: Modelo Vista Controlador</li>
+						<li class="fragment">Ejemplos de sistemas con patrones MVC</li>
+					</ul>
+				</section>
+
+				<section id="conocimientos-previos">
+					<h2>Conocimientos previos</h2>
+					<ul>
+						<li>El significado de BD, IU (UI en inglés), reglas del negocio.</li>
+						<li>Conocimientos de los distintos componentes de un aplicación</li>
+					</ul>
+				</section>
+
+				<section id="objetivo-clase">
+					<h2>Objetivo de la clase</h2>
+					<ul>
+						<li class="fragment">Aprender que es un patrón de diseño</li>
+						<li class="fragment">Implementar un patrón de diseño en las aplicaciones</li>
+						<li class="fragment">Comprender <strong>la importancia</strong> de organizar correctamente una aplicación</li>
+					</ul>
+				</section>
+
+				<section id="comencemos">
+					<h2>¡Comencemos!</h2>
+				</section>
+
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li class="fragment">¿Cómo suelen estructuras las aplicaciones?</li>
+						<li class="fragment">¿Han notado la organización al utilizan librerias de C#, Java, entre otros?</li>
+						<li class="fragment">¿Como encuentran las partes de una aplicación?</li>
+						<li class="fragment">¿Qué problemas existen al invertir mucho tiempo en ubicar componentes de una aplicación?</li>
+					</ul>
+					<aside class="notes">
+						Preguntar como hacen cuando ocurre un error, como localizan las fuente del mismo.
+						Que tipo de patrones de diseño conocen.
+					</aside>
+				</section>
+
+				<section id="patron-diseno">
+					<h1>¿Qué es un patrón de diseño?</h1>
+					<aside class="notes">
+						Preguntar que es un patrón de diseño
+					</aside>
+				</section>
+
+				<section id="patron-diseno-definicion">
+					<h2>¿Qué es un patrón de diseño?</h2>
+					<blockquote>
+						Los patrones de diseño son el esqueleto de las soluciones a problemas comunes en el desarrollo de software. <br><br>
+						Nicolás Tedeschi (2014)
+					</blockquote>
+				</section>
+
+				<section id="tipos-de-patrones">
+					<h2>Tipos de patrones</h2>
+					<ul>
+					    <li>
+					    	<strong>Creacionales:</strong> define, inicialize y crea objetos.
+						</li>
+
+					    <li>
+					    	<strong>Estructurales:</strong> separan la interfaz de la implementación.
+					    	 Indica cómo la agrupación de clases y objetos se agrupan, con el fin de formar
+					    	 estructuras más grandes.
+						</li>
+
+					    <li>
+					    	<strong>De Comportamiento:</strong> describen la 
+					    	comunicación entre ellos.
+						</li>
+					</ul>
+				</section>
+
+				<section id="ejemplo-patron">
+					<h2>Ejemplo de un patrón de diseño</h2>
+					<p class="half center">
+						<a href="img/08/patron-sideño-ejemplo.png" data-lightbox="code">
+							<img src="img/08/patron-sideño-ejemplo.png" alt="Ejemplo de patrón de diseño">
+						</a>
+					</p>
+					<p>
+						Ejemplo de un patrón creacional y estructural
+					</p>
+					<aside class="notes">
+						Explicar el ejemplo, como se crean clases que luego se utilizan en la herencia. 
+						Como se implementan interfaces para agregar funciones genericas a objetos. 
+						Usar ejemplos de WooCommerce
+					</aside>
+				</section>
+
+				<section id="intro-mvc">
+					<h1>MVC: Modelo Vista Controlador</h1>
+					<aside class="notes">
+						Preguntar por MVC, que es un tema requerido por las 
+						empresas de software y anteriormente no se daba en la universidad.
+					</aside>
+				</section>
+
+				<section id="que-es-mvc">
+					<h2>MVC: Modelo Vista Controlador</h2>
+					<p class="text-left">Es el patrón de diseño mas popular, separa una aplicación en tres partes interconectadas:</p>
+					<ul>
+						<li class="fragment">
+							<strong>M</strong>odelo: se encarga de manejar los datos.
+						</li>
+						<li class="fragment">
+							<strong>V</strong>ista: presentación de datos y manejo de eventos.
+						</li>
+						<li class="fragment">
+							<strong>C</strong>ontrolador: realizar la lógica del negocio.
+						</li>
+					</ul>
+					<aside class="notes">
+						Preguntar que es lógica del negocio
+					</aside>
+				</section>
+
+				<section id="partes-mvc">
+					<h2>Componentes de MVC</h2>
+					<img src="img/08/mvc.jpg" alt="partes de MVC" />
+					<p>
+						<small>
+							Fuente: <a href="https://www.solvetic.com/tutoriales/article/1487-desarrollo-de-software-patrones-de-dise%C3%B1o-con-php-5/" target="_blank">
+								Solvetic
+							</a>
+						</small>
+					</p>
+				</section>
+
+				<section id="interaccion-partes-mvc">
+					<div class="half left">
+						<br>
+						<br>
+						<h2>Interacción de los componentes de MVC por un evento del usuario</h2>
+					</div>
+					<div class="half left">
+						<a href="img/08/interaccion-mvc.png" data-lightbox="interaccion-mvc">
+							<img src="img/08/interaccion-mvc.png" alt="Interacción de las partes de MVC" />
+						</a>
+					<p>
+						<small>
+							Fuente: <a href="https://www.solvetic.com/tutoriales/article/1487-desarrollo-de-software-patrones-de-dise%C3%B1o-con-php-5/" target="_blank">
+								Solvetic
+							</a>
+						</small>
+					</p>
+					</div>
+				</section>
+
+				<section id="cuando-usar-mvc">
+					<h2>¿Por qué usar MVC?</h2>
+					<ul>
+						<li>Desarrollo en paralelo.</li>
+						<li>Se pueden crear varias vistas: <a href="https://developer.mozilla.org/es/docs/Learn/HTML" target="_blank">HTML</a>, <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON" target="_blank">JSON</a>, SOAP, para administrador, para usuario.</li>
+						<li>Los modelos devuelven datos sin formato, permitiendo reutilización.</li>
+						<li>General URLs amigables con buscadores (SEO).</li>
+					</ul>
+					<aside class="notes">
+						Paralelo: Varios programadores pueden trabajar simultaneamente.
+						Datos sin formato: se puede usar la data para varios fines, para un listado, realizar búsquedas, cálculos, etc.
+						Preguntar que es SEO y URL amigales, explicar si no conocen.
+					</aside>
+				</section>
+
+				<section id="cuando-no-usar-mvc">
+					<h2>Problemas de MVC</h2>
+					<ul>
+						<li>Puede añadir capas de complejidad en problemas sencillos.</li>
+						<li>En aplicaciones gigantes puede producir problemas: muchos modelos, muchos controladores.</li>
+						<li>Para aplicaciones del lado del cliente existen mejores patrones.</li>
+					</ul>
+					<aside class="notes">
+						Nombrar otros patrones como MVVC para Angular, o MVP para WPF de Microsoft.
+					</aside>
+				</section>
+
+				<section id="ejemplo-mvc">
+					<h2>Ejemplo de MVC en C#</h2>
+					<p>Para una entidad llamada <strong>Producto</strong>:</p>
+					<div class="half left">
+						<a href="img/08/ejemplo-csharp.png" data-lightbox="ejemplo-mvc" target="_blank">
+							<img src="img/08/ejemplo-csharp.png" alt="Ejemplo en C#" />
+						</a>
+					</div>
+					<div class="half left">
+						<ul>
+							<li>Carpeta <em>Controllers</em> con las operaciones.</li>
+							<li>
+								Carpeta <em>Models</em> con el acceso a los datos.
+							</li>
+							<li>
+								Carpeta <em>Views</em> con las distintas vistas del Producto.
+							</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						 Los controladores tienen la lógica de un producto, agregarlo, modificarlo, eliminarlo, buscar productos con variaciones, listado de productos.
+						 Explicar que los datos pueden venir (en una B.D, API, archivo, etc)
+						 Vistas pueden ser respuestas HTML o JSON para apis REST.
+					</aside>
+				</section>
+
+				<section id="enlaces">
+					<h2>Enlaces recomendados</h2>
+					<ul>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/Apps/Fundamentals/Modern_web_app_architecture/MVC_architecture" target="_blank">
+								Definición de MVC por Web Docs (inglés)
+							</a>
+						</li>
+						<li>
+							<a href="https://www.asp.net/mvc" target="_blank">
+								Implementación de MVC para ASP
+							</a>
+						</li>
+						<li>
+							<a href="https://blog.codinghorror.com/understanding-model-view-controller/" title="Artículo sobre MVC por Jeff Attwood">
+								Understanding Model View Controller (inglés)
+							</a>
+						</li>
+					</ul>
+					<aside class="notes">
+						Preguntar quien es Jeff Attwood (creador de Stack Overflow)
+					</aside>
+				</section>
+
+				
+
+				<section>
+					<h1>¿Preguntas?</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
