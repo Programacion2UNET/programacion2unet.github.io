@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="Miguel Angel Useche Castro">
+		<meta name="description" content="Láminas de la materia de Programación II de la Universidad Nacional Experimental del Táchira">
+
+		<title>Programación II: Introducción a Frameworks</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/source/unet.css">
+		<link rel="stylesheet" href="css/lightbox.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro">
+					<div class="unet">
+						<div class="logo-wrapper left">
+							<img class="noborder" src="img/UNET.png" alt="UNET Logo">
+						</div>
+						<p id="definition-header" class="left">
+							Universidad Nacional Experimental Del Táchira<br />
+							Decanato De Docencia<br />
+							Dpto. Ingeniería Informática
+						</p>
+					</div>
+
+					<h1 class="clear">
+						Introducción a Frameworks
+					</h1>
+					<h2 id="subject-code">
+						<small>Programación II (Cod. 0415405T)</small>
+					</h2>
+					<div class="professor-info">
+						<p>
+							<a href="http://skatox.com/" target="_blank">Prof. Miguel Useche</a> -
+							<a href="mailto:miguel.useche@unet.edu.ve" target="_blank">migueluseche@unet.edu.ve</a> -
+							<a href="http://twitter.com/skatox" target="_blank">@skatox</a>
+						</p>
+					</div>
+				</section>
+				<section id="temas">
+					<h2>Temas a tratar</h2>
+					<ul>
+						<li class="fragment">¿Qué es un framework?</li>
+						<li class="fragment">¿Por qué utilizar uno?</li>
+						<li class="fragment">Ejemplo de un framework en PHP</li>
+					</ul>
+				</section>
+
+				<section id="conocimientos-previos">
+					<h2>Conocimientos previos</h2>
+					<ul>
+						<li>Desarrollo básico de aplicaciones web.</li>
+						<li>Conocimientos de los componentes de una aplicación web</li>
+						<li>Uso de patrones de diseño.</li>
+						<li>Conocimientos básicos sobre Base de datos.</li>
+					</ul>
+				</section>
+
+				<section id="objetivo-clase">
+					<h2>Objetivo de la clase</h2>
+					<ul>
+						<li class="fragment">Aprender que es un <em>framework</em>.</li>
+						<li class="fragment">Conocer escenarios donde se debe usar <em>frameworks</em></li>
+						<li class="fragment">Descubrir los diferentes componentes de un marco de trabajo.</li>
+						<li class="fragment">Manejo de dependencias.</li>
+						<li class="fragment">Uso de un marco de trabajo.</li>
+					</ul>
+				</section>
+
+				<section id="comencemos">
+					<h2>¡Comencemos!</h2>
+				</section>
+
+				<section id="introduccion">
+					<h2>Introducción</h2>
+					<ul>
+						<li class="fragment">¿Han notado que la base de las aplicaciones web es la misma?</li>
+						<li class="fragment">¿Como hacer un sistema de login seguro? ¿Como implementar un protocolo de forma segura?</li>
+						<li class="fragment">¿Como organizar correctamente un proyecto?</li>
+				</section>
+
+				<section id="marco-trabajo">
+					<h1>¿Qué es un marco de trabajo?</h1>
+					<p>
+						Es una abstracción de las funcionalidades génericas de un software.
+						Donde al ir agregando código adicional se pueden desarrollar las funcionalidades 
+						específicas.
+					</p>
+					<p>
+						Un marco de trabajo consta de clases, funciones y herramientas, compiladores
+					</p>
+					<aside class="notes">
+						Decir que se comienza con una base y luego se va expandiendo hasta ser mejor.
+					</aside>
+				</section>
+
+				<section id="herramientas-marco-trabajo">
+					<h2>Herramientas de un marco de trabajo</h2>
+					<p class="text-left">
+						Los frameworks suelen incluir herramientas como:
+					</p>
+					<ul>
+						<li>Generadores de código: CRUD, Modelos, Controladores, Módulos, etc.</li>
+						<li>Plataforma para desarrollar pruebas.</li>
+						<li>Migraciones de Base de Datos.</li>
+						<li>Manejo de dependencias.</li>
+					</ul>
+				</section>
+
+				<section id="ver-herramientas">
+					<h1>¡Observemos!</h1>
+				</section>
+
+				<section id="manejo-dependencias">
+					<h2>Herramientas para manejo de dependencias</h2>
+					<ul>
+						<li>
+							Son herramientas para administrar todas las librerias
+							requeridas por una aplicación, de forma organizada y lógica.
+						</li>
+						<li>
+							Permite instalar y actualizar dependencias en un proyecto complejo.
+						</li>
+						<li>
+							Sirve para establecer el entorno de desarrollo.
+						</li>
+					</ul>
+				</section>
+
+				<section id="manejo-dependencias-2">
+					<h2>Herramientas para manejo de dependencias</h2>
+
+					<table>
+						<tr>
+							<td class="center">
+								<a href="https://getcomposer.org/">
+									<img src="img/09/logo-composer-transparent5.png" class="half" alt="Composer">
+								</a>
+								<br><small>Composer (PHP)</small>
+							</td>
+							<td class="center">
+								<a href="https://doc.rust-lang.org/cargo/">
+									<img src="img/09/Cargo-Logo-Small.png" class="half" alt="Rust Cargo">
+								</a>
+								<small>Cargo (Rust)</small>
+							</td>
+							<td class="center">
+								<a href="https://yarnpkg.com/es-ES/">
+									<img src="img/09/yarn.jpg" class="half">
+								</a>
+								<br><small>Yarn (JavaScript)</small>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3" class="center">
+								<a href="https://maven.apache.org">
+									<img src="img/09/apache-maven-project.png" class="half noborder" alt="Maven">
+								</a>
+								<br><small>Maven (Java)</small>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section id="humor">
+					<h2>Humor</h2>
+					<video autoplay loop>
+						<source src="img/09/framework_joke_skate.mp4" type="video/mp4">
+					</video>
+					<p>
+						Como se siente un programador al probar 
+						un framework la primera vez.
+					</p>
+					<aside class="notes">Literalmente un golpe en la cara</aside>
+				</section>
+
+				<section id="enlaces">
+					<h2>Enlaces recomendados</h2>
+					<ul>
+						<li>
+                            <a href="http://mycyberacademy.com/por-que-debemos-usar-frameworks/" title="Ver artículo">
+                                ¿Por qué usar frameworks?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jordisan.net/blog/2006/que-es-un-framework/" title="Ver artículo">
+                                ¿Qué es un framework?
+                            </a>
+                        </li>
+                		<li>
+                            <a href="https://coderseye.com/best-php-frameworks-for-web-developers/" title="Ver artículo">
+                                Comparación de Frameworks de PHP (inglés)
+                            </a>
+                        </li>
+                         <li>
+                                <a href="https://github.com/yiisoft/yii2/tree/master/docs/guide-es" title="Ver artículo">
+                                    Yii2 en español ( incompleto)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://laraveles.com/documentacion/" title="Ver artículo">
+                                    Laravel en español
+                                </a>
+                            </li>
+					</ul>
+				</section>
+
+
+				
+
+				<section>
+					<h1>¿Preguntas?</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lightbox-plus-jquery.min.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				center: true,
+				theme: 'unet',
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
